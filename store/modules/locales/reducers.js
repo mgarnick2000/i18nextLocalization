@@ -5,6 +5,7 @@ import {
   SET_LANGUAGES_OPTIONS,
   SET_LANGUAGE,
   FAIL_SET_LANGUAGE,
+  FETCH_LOCALE_SUCCESS,
 } from './types';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   currentLanguage: 'en',
   isRTL: false,
   error: {},
+  locale: 'en_US',
 };
 
 class reducers {
@@ -36,6 +38,17 @@ class reducers {
   });
 
   static [FAIL_SET_LANGUAGE] = failureReducer;
+
+  /**
+   * @function
+   * @static
+   * @memberof reducers
+   */
+  static [FETCH_LOCALE_SUCCESS] = (state, {locale}) => ({
+    ...state,
+    locale,
+    error: {},
+  });
 }
 
 const localeReducers = createReducer(initialState, reducers);

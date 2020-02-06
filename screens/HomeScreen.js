@@ -1,10 +1,13 @@
 import React, {PureComponent} from 'react';
 import {View, Text, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {connect} from 'react-redux';
+import {fetchLocaleAction} from '../store/modules/locales/actions';
 
 class HomeScreen extends PureComponent {
-  navToDetails = () => {
-    const {navigation} = this.props;
+  navToDetails = async () => {
+    const {navigation, locale, fetchLocale} = this.props;
+    await fetchLocale();
     navigation.navigate('Details');
   };
   render() {
@@ -17,4 +20,14 @@ class HomeScreen extends PureComponent {
     );
   }
 }
-export default HomeScreen;
+
+const mapStateToProps = ({locales}) => ({
+  locale: locales.locale,
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    fetchLocale: fetchLocaleAction,
+  },
+)(HomeScreen);
