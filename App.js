@@ -17,6 +17,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {Stack} from './navigation';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
+import i18next from './i18n';
 
 class App extends PureComponent {
   render() {

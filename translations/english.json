@@ -1,0 +1,15 @@
+{
+  "home": {
+    "home": "Home"
+  },
+  "navigate": {
+    "details": "Navigate to Details"
+  },
+  "hello": "Hello World!",
+  "details": "Details Screen",
+  "change": "Change Language",
+  "settings": "Settings",
+  "en": "English",
+  "ar": "Arabic",
+  "fr": "French"
+}
