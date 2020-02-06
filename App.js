@@ -10,6 +10,9 @@ import React, {PureComponent} from 'react';
 import {StyleSheet} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import {store, persistor} from './store';
 import {NavigationContainer} from '@react-navigation/native';
 import {Stack} from './navigation';
 import HomeScreen from './screens/HomeScreen';
@@ -18,20 +21,24 @@ import DetailsScreen from './screens/DetailsScreen';
 class App extends PureComponent {
   render() {
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Details"
-            component={DetailsScreen}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Details"
+                component={DetailsScreen}
+                options={{headerShown: false}}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
     );
   }
 }
