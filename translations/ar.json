@@ -1,6 +1,8 @@
 {
-  "Details Screen": "Details Screen",
-  "Navigation to Home": "Navigation to Home",
-  "Home Screen": "Home Screen",
-  "Navigate to Details": "Navigate to Details"
+  "translation": {
+    "Details Screen": "تفاصيل الشاشة",
+    "Navigation to Home": "الإنتقال إلى الصفحة الرئيسية",
+    "Home Screen": "الشاشة الرئيسية",
+    "Navigate to Details": "الملاحة إلى التفاصيل"
+  }
 }

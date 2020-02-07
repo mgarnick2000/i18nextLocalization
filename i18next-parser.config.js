@@ -5,6 +5,9 @@ module.exports = {
   createOldCatalogs: false,
   // Save the \_old files
 
+  // defaultNamespace: 'translation',
+  // Default namespace used in your i18next config
+
   indentation: 2,
   // Indentation of the catalog files
 

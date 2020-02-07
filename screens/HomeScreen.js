@@ -27,6 +27,9 @@ const mapStateToProps = ({locales}) => ({
   locale: locales.locale,
 });
 
-export default connect(mapStateToProps, {
-  fetchLocale: fetchLocaleAction,
-})(withTranslation()(HomeScreen));
+export default connect(
+  mapStateToProps,
+  {
+    fetchLocale: fetchLocaleAction,
+  },
+)(withTranslation()(HomeScreen));

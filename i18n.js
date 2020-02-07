@@ -12,12 +12,14 @@ const languageDetector = {
   init: () => {},
   cacheUserLanguage: () => {},
 };
+debugger;
 i18next
   .use(languageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: true,
+    // defaultNS: 'translation',
     resources: {
       en,
       ar,
@@ -25,6 +27,9 @@ i18next
     },
     interpolation: {
       escapeValue: false, // not needed for react as it does escape per default to prevent xss!
+    },
+    react: {
+      wait: true,
     },
   });
 
