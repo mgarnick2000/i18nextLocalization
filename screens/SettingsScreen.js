@@ -31,6 +31,7 @@ class SettingsScreen extends PureComponent {
               <Text
                 style={[
                   styles.languageOptions,
+                  // eslint-disable-next-line react-native/no-inline-styles
                   {textAlign: isRTL ? 'right' : 'left'},
                 ]}
                 onPress={() => this.changeLanguage(item.lng)}>
