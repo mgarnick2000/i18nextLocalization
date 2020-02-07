@@ -2,11 +2,12 @@ import React, {PureComponent} from 'react';
 import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {withTranslation} from 'react-i18next';
+import {changeLanguageAction} from '../store/modules/locales/actions';
 
 class SettingsScreen extends PureComponent {
   changeLanguage = lng => {
-    const {navigation} = this.props;
-    // setLanguage(lng);
+    const {navigation, setLanguage} = this.props;
+    setLanguage(lng);
     navigation.navigate('Home');
   };
 
@@ -59,4 +60,7 @@ const mapStateToProps = ({locales}) => ({
   languages: locales.languages,
   isRTL: locales.isRTL,
 });
-export default connect(mapStateToProps)(withTranslation()(SettingsScreen));
+export default connect(
+  mapStateToProps,
+  {setLanguage: changeLanguageAction},
+)(withTranslation()(SettingsScreen));

@@ -8,6 +8,7 @@ import {
   FAIL_SET_LANGUAGE,
   FETCH_LOCALE_SUCCESS,
 } from './types';
+import i18next from '../../../i18n';
 
 const language = Localization.locale.substring(
   0,
@@ -38,10 +39,13 @@ class reducers {
     languages,
   });
 
-  static [SET_LANGUAGE] = (state, {language}) => ({
-    ...state,
-    currentLanguage: language,
-  });
+  static [SET_LANGUAGE] = (state, action) => {
+    return {
+      ...state,
+      currentLanguage: i18next.changeLanguage(action.language),
+      isRTL: action.language === 'ar' && true,
+    };
+  };
 
   static [FAIL_SET_LANGUAGE] = failureReducer;
 

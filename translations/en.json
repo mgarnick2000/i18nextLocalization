@@ -4,6 +4,9 @@
     "Navigation to Home": "Navigation to Home",
     "Home Screen": "Home Screen",
     "Navigate to Details": "Navigate to Details",
-    "Change the Language": "Change the Language"
+    "Change the Language": "Change the Language",
+    "en": "English",
+    "ar": "Arabic",
+    "fr": "French"
   }
 }

@@ -34,3 +34,11 @@ const failSetLanguage = error => ({
   type: FAIL_SET_LANGUAGE,
   error,
 });
+
+export const changeLanguageAction = language => dispatch => {
+  try {
+    dispatch(setLanguage(language));
+  } catch (e) {
+    return dispatch(failSetLanguage(e));
+  }
+};
