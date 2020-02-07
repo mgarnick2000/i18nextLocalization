@@ -12,7 +12,7 @@ class SettingsScreen extends PureComponent {
   };
 
   render() {
-    const {languages, t} = this.props;
+    const {languages, t, locale, isRTL} = this.props;
     const fixLngs = languages.map((i, idx) => ({
       key: `${idx}`,
       lng: i.substring(0, i.indexOf('-')),
@@ -29,7 +29,10 @@ class SettingsScreen extends PureComponent {
           renderItem={({item}) => (
             <TouchableOpacity>
               <Text
-                style={styles.languageOptions}
+                style={[
+                  styles.languageOptions,
+                  {textAlign: isRTL ? 'right' : 'left'},
+                ]}
                 onPress={() => this.changeLanguage(item.lng)}>
                 {t(item.lng, {locale: item.lng})}
               </Text>
@@ -59,8 +62,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({locales}) => ({
   languages: locales.languages,
   isRTL: locales.isRTL,
+  locale: locales.locale,
 });
-export default connect(
-  mapStateToProps,
-  {setLanguage: changeLanguageAction},
-)(withTranslation()(SettingsScreen));
+export default connect(mapStateToProps, {setLanguage: changeLanguageAction})(
+  withTranslation()(SettingsScreen),
+);
