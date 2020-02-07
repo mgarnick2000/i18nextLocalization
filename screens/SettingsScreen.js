@@ -20,7 +20,6 @@ class SettingsScreen extends PureComponent {
       f => f.lng === 'ar' || f.lng === 'en' || f.lng === 'fr',
     );
 
-    debugger;
     return (
       <View style={styles.container}>
         <Text style={styles.language}>{t('Change the Language')}</Text>
