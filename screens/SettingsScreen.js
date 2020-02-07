@@ -15,12 +15,12 @@ class SettingsScreen extends PureComponent {
     const {languages, t, locale, isRTL} = this.props;
     const fixLngs = languages.map((i, idx) => ({
       key: `${idx}`,
+      locale: i,
       lng: i.substring(0, i.indexOf('-')),
     }));
     const availableLanguages = fixLngs.filter(
       f => f.lng === 'ar' || f.lng === 'en' || f.lng === 'fr',
     );
-
     return (
       <View style={styles.container}>
         <Text style={styles.language}>{t('Change the Language')}</Text>
@@ -65,6 +65,7 @@ const mapStateToProps = ({locales}) => ({
   isRTL: locales.isRTL,
   locale: locales.locale,
 });
-export default connect(mapStateToProps, {setLanguage: changeLanguageAction})(
-  withTranslation()(SettingsScreen),
-);
+export default connect(
+  mapStateToProps,
+  {setLanguage: changeLanguageAction},
+)(withTranslation()(SettingsScreen));
