@@ -42,7 +42,7 @@ class reducers {
   static [SET_LANGUAGE] = (state, action) => {
     return {
       ...state,
-      currentLanguage: i18next.changeLanguage(action.language),
+      currentLanguage: action.language,
       isRTL: action.language === 'ar' && true,
     };
   };

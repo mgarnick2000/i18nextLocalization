@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import {persistReducer, createMigrate} from 'redux-persist';
-import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import ExpoFileSystemStorage from 'redux-persist-expo-filesystem';
 import {localeReducers} from './locales';
 
@@ -14,8 +14,8 @@ const rootPersistConfig = {
   key: 'root',
   version: 0,
   storage: ExpoFileSystemStorage,
-  stateReconciler: autoMergeLevel1,
-  // blacklist: ['locales'],
+  stateReconciler: autoMergeLevel2,
+  blacklist: ['locales'],
   migrate: createMigrate(migrations, {debug: false}),
 };
 

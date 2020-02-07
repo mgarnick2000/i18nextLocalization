@@ -8,6 +8,7 @@ import {
   FETCH_LOCALE_FAILURE,
   FETCH_LOCALE_SUCCESS,
 } from './types';
+import i18next from 'i18next';
 
 /** @function */
 const startFetching = () => ({
@@ -37,6 +38,7 @@ const failSetLanguage = error => ({
 
 export const changeLanguageAction = language => dispatch => {
   try {
+    i18next.changeLanguage(language);
     dispatch(setLanguage(language));
   } catch (e) {
     return dispatch(failSetLanguage(e));
