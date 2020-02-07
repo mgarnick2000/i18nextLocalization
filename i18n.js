@@ -12,14 +12,12 @@ const languageDetector = {
   init: () => {},
   cacheUserLanguage: () => {},
 };
-debugger;
 i18next
   .use(languageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: true,
-    // defaultNS: 'translation',
     resources: {
       en,
       ar,

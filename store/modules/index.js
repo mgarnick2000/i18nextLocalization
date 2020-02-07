@@ -15,6 +15,7 @@ const rootPersistConfig = {
   version: 0,
   storage: ExpoFileSystemStorage,
   stateReconciler: autoMergeLevel2,
+  blacklist: ['locales'],
   migrate: createMigrate(migrations, {debug: false}),
 };
 

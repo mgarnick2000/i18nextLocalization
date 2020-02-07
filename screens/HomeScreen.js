@@ -8,7 +8,6 @@ import {withTranslation} from 'react-i18next';
 class HomeScreen extends PureComponent {
   navToDetails = async () => {
     const {navigation, fetchLocale} = this.props;
-    await fetchLocale();
     navigation.navigate('Details');
   };
   render() {

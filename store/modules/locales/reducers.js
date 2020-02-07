@@ -1,4 +1,5 @@
 import {createReducer, startReducer, failureReducer} from '../../helper';
+import * as Localization from 'expo-localization';
 import {
   FAILED_FETCHING_LOCALES,
   START_FETCHING_LOCALES,
@@ -8,12 +9,17 @@ import {
   FETCH_LOCALE_SUCCESS,
 } from './types';
 
+const language = Localization.locale.substring(
+  0,
+  Localization.locale.indexOf('-'),
+);
+
 const initialState = {
-  languages: [{}],
-  currentLanguage: 'en',
-  isRTL: false,
+  languages: Localization.locales,
+  currentLanguage: language,
+  isRTL: Localization.isRTL,
   error: {},
-  locale: 'en_US',
+  locale: Localization.locale,
 };
 
 class reducers {
