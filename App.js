@@ -18,6 +18,7 @@ import {Stack} from './navigation';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import i18next from './i18n';
+import SettingsScreen from './screens/SettingsScreen';
 
 class App extends PureComponent {
   render() {
@@ -34,6 +35,11 @@ class App extends PureComponent {
               <Stack.Screen
                 name="Details"
                 component={DetailsScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Settings"
+                component={SettingsScreen}
                 options={{headerShown: false}}
               />
             </Stack.Navigator>
